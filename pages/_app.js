@@ -1,7 +1,17 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+//INTERNAL IMPORT
+import { NavBar } from "../Components/index";
+import { SwapTokenContextProvider } from "../Context/SwapContext";
 
-export default MyApp
+const MyApp = ({ Component, pageProps }) => (
+  <div>
+    <SwapTokenContextProvider>
+      <NavBar />
+
+      <Component {...pageProps} />
+    </SwapTokenContextProvider>
+  </div>
+);
+
+export default MyApp;
